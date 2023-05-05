@@ -70,10 +70,10 @@ public class SiteGeoDaoRedisImpl implements SiteGeoDao {
              String key = RedisSchema.getSiteGeoKey();
              List<GeoRadiusResponse> radiusResponses = jedis.georadius(
                      key,
-                     query.getCoordinate().getLng(),
-                     query.getCoordinate().getLat(),
-                     query.getRadius(),
-                     query.getRadiusUnit()
+                     coord.getLng(),
+                     coord.getLat(),
+                     radius,
+                     radiusUnit
              );
 
              Set<Site> sites = radiusResponses.stream()
